@@ -1,0 +1,432 @@
+login as: root
+root@*IPv4 server address*'s password:
+Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-125-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+0 updates can be applied immediately.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@user:~# wget https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+--2024-08-22 09:54:25--  https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8003::154, 2606:50c0:8002::154, 2606:50c0:8001::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8003::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 40923 (40K) [text/plain]
+Saving to: ‘openvpn-install.sh’
+
+openvpn-install.sh  100%[===================>]  39.96K  --.-KB/s    in 0.003s
+
+2024-08-22 09:54:25 (14.2 MB/s) - ‘openvpn-install.sh’ saved [40923/40923]
+
+root@user:~# chmod +x openvpn-install.sh
+root@user:~# ./openvpn-install.sh
+Welcome to the OpenVPN installer!
+The git repository is available at: https://github.com/angristan/openvpn-install
+
+I need to ask you a few questions before starting the setup.
+You can leave the default options and just press enter if you are ok with them.
+
+I need to know the IPv4 address of the network interface you want OpenVPN listening to.
+Unless your server is behind NAT, it should be your public IPv4 address.
+IP address: *IPv4 server address*
+
+Checking for IPv6 connectivity...
+
+Your host appears to have IPv6 connectivity.
+
+Do you want to enable IPv6 support (NAT)? [y/n]: y
+
+What port do you want OpenVPN to listen to?
+   1) Default: 1194
+   2) Custom
+   3) Random [49152-65535]
+Port choice [1-3]: 1
+
+What protocol do you want OpenVPN to use?
+UDP is faster. Unless it is not available, you shouldn't use TCP.
+   1) UDP
+   2) TCP
+Protocol [1-2]: 1
+
+What DNS resolvers do you want to use with the VPN?
+   1) Current system resolvers (from /etc/resolv.conf)
+   2) Self-hosted DNS Resolver (Unbound)
+   3) Cloudflare (Anycast: worldwide)
+   4) Quad9 (Anycast: worldwide)
+   5) Quad9 uncensored (Anycast: worldwide)
+   6) FDN (France)
+   7) DNS.WATCH (Germany)
+   8) OpenDNS (Anycast: worldwide)
+   9) Google (Anycast: worldwide)
+   10) Yandex Basic (Russia)
+   11) AdGuard DNS (Anycast: worldwide)
+   12) NextDNS (Anycast: worldwide)
+   13) Custom
+DNS [1-12]: 9
+
+Do you want to use compression? It is not recommended since the VORACLE attack makes use of it.
+Enable compression? [y/n]: n
+
+Do you want to customize encryption settings?
+Unless you know what you're doing, you should stick with the default parameters provided by the script.
+Note that whatever you choose, all the choices presented in the script are safe. (Unlike OpenVPN's defaults)
+See https://github.com/angristan/openvpn-install#security-and-encryption to learn more.
+
+Customize encryption settings? [y/n]: n
+
+Okay, that was all I needed. We are ready to setup your OpenVPN server now.
+You will be able to generate a client at the end of the installation.
+Press any key to continue...
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [128 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease [128 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-security InRelease [128 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/restricted amd64 Packages [22.0 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/restricted Translation-en [6212 B]
+Get:7 http://archive.ubuntu.com/ubuntu focal/restricted amd64 c-n-f Metadata [392 B]
+Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 Packages [8628 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal/universe Translation-en [5124 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 c-n-f Metadata [265 kB]
+Get:11 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 Packages [144 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal/multiverse Translation-en [104 kB]
+Get:13 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 c-n-f Metadata [9136 B]
+Get:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [3534 kB]
+Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main Translation-en [546 kB]
+Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 c-n-f Metadata [17.7 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [3195 kB]
+Get:18 http://archive.ubuntu.com/ubuntu focal-updates/restricted Translation-en [448 kB]
+Get:19 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 c-n-f Metadata [540 B]
+Get:20 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1219 kB]
+Get:21 http://archive.ubuntu.com/ubuntu focal-updates/universe Translation-en [294 kB]
+Get:22 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 c-n-f Metadata [27.8 kB]
+Get:23 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [27.1 kB]
+Get:24 http://archive.ubuntu.com/ubuntu focal-updates/multiverse Translation-en [7936 B]
+Get:25 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 c-n-f Metadata [616 B]
+Get:26 http://archive.ubuntu.com/ubuntu focal-backports/main amd64 Packages [45.7 kB]
+Get:27 http://archive.ubuntu.com/ubuntu focal-backports/main Translation-en [16.3 kB]
+Get:28 http://archive.ubuntu.com/ubuntu focal-backports/main amd64 c-n-f Metadata [1420 B]
+Get:29 http://archive.ubuntu.com/ubuntu focal-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:30 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [25.0 kB]
+Get:31 http://archive.ubuntu.com/ubuntu focal-backports/universe Translation-en [16.3 kB]
+Get:32 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 c-n-f Metadata [880 B]
+Get:33 http://archive.ubuntu.com/ubuntu focal-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:34 http://archive.ubuntu.com/ubuntu focal-security/main amd64 Packages [3162 kB]
+Get:35 http://archive.ubuntu.com/ubuntu focal-security/main Translation-en [468 kB]
+Get:36 http://archive.ubuntu.com/ubuntu focal-security/main amd64 c-n-f Metadata [14.1 kB]
+Get:37 http://archive.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [3076 kB]
+Get:38 http://archive.ubuntu.com/ubuntu focal-security/restricted Translation-en [431 kB]
+Get:39 http://archive.ubuntu.com/ubuntu focal-security/restricted amd64 c-n-f Metadata [544 B]
+Get:40 http://archive.ubuntu.com/ubuntu focal-security/universe amd64 Packages [1000 kB]
+Get:41 http://archive.ubuntu.com/ubuntu focal-security/universe Translation-en [212 kB]
+Get:42 http://archive.ubuntu.com/ubuntu focal-security/universe amd64 c-n-f Metadata [21.0 kB]
+Get:43 http://archive.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [24.8 kB]
+Get:44 http://archive.ubuntu.com/ubuntu focal-security/multiverse Translation-en [5968 B]
+Get:45 http://archive.ubuntu.com/ubuntu focal-security/multiverse amd64 c-n-f Metadata [540 B]
+Fetched 32.5 MB in 12s (2612 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+gnupg set to manually installed.
+The following packages were automatically installed and are no longer required:
+  eatmydata libeatmydata1 libnetplan0 python3-importlib-metadata
+  python3-jinja2 python3-json-pointer python3-jsonpatch python3-jsonschema
+  python3-markupsafe python3-more-itertools python3-pyrsistent python3-zipp
+Use 'apt autoremove' to remove them.
+The following packages will be upgraded:
+  ca-certificates
+1 upgraded, 0 newly installed, 0 to remove and 203 not upgraded.
+Need to get 152 kB of archives.
+After this operation, 15.4 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ca-certificates all 20230311ubuntu0.20.04.1 [152 kB]
+Fetched 152 kB in 1s (167 kB/s)
+Preconfiguring packages ...
+(Reading database ... 71628 files and directories currently installed.)
+Preparing to unpack .../ca-certificates_20230311ubuntu0.20.04.1_all.deb ...
+Unpacking ca-certificates (20230311ubuntu0.20.04.1) over (20211016~20.04.1) ...
+Setting up ca-certificates (20230311ubuntu0.20.04.1) ...
+Updating certificates in /etc/ssl/certs...
+rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+19 added, 9 removed; done.
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for ca-certificates (20230311ubuntu0.20.04.1) ...
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+ca-certificates is already the newest version (20230311ubuntu0.20.04.1).
+ca-certificates set to manually installed.
+The following packages were automatically installed and are no longer required:
+  eatmydata libeatmydata1 libnetplan0 python3-importlib-metadata
+  python3-jinja2 python3-json-pointer python3-jsonpatch python3-jsonschema
+  python3-markupsafe python3-more-itertools python3-pyrsistent python3-zipp
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  libcurl4 libip4tc2 libip6tc2 libpkcs11-helper1 libxtables12
+Suggested packages:
+  firewalld nftables resolvconf openvpn-systemd-resolved easy-rsa
+The following NEW packages will be installed:
+  libpkcs11-helper1 openvpn
+The following packages will be upgraded:
+  curl iptables libcurl4 libip4tc2 libip6tc2 libxtables12 openssl wget
+8 upgraded, 2 newly installed, 0 to remove and 195 not upgraded.
+Need to get 2351 kB of archives.
+After this operation, 1358 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 iptables amd64 1.8.4-3ubuntu2.1 [390 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libxtables12 amd64 1.8.4-3ubuntu2.1 [28.7 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libip6tc2 amd64 1.8.4-3ubuntu2.1 [19.4 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libip4tc2 amd64 1.8.4-3ubuntu2.1 [19.1 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openssl amd64 1.1.1f-1ubuntu2.23 [621 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 wget amd64 1.20.3-1ubuntu2.1 [349 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.23 [161 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcurl4 amd64 7.68.0-1ubuntu2.23 [235 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.2 [483 kB]
+Fetched 2351 kB in 0s (5939 kB/s)
+Preconfiguring packages ...
+(Reading database ... 71638 files and directories currently installed.)
+Preparing to unpack .../0-iptables_1.8.4-3ubuntu2.1_amd64.deb ...
+Unpacking iptables (1.8.4-3ubuntu2.1) over (1.8.4-3ubuntu2) ...
+Preparing to unpack .../1-libxtables12_1.8.4-3ubuntu2.1_amd64.deb ...
+Unpacking libxtables12:amd64 (1.8.4-3ubuntu2.1) over (1.8.4-3ubuntu2) ...
+Preparing to unpack .../2-libip6tc2_1.8.4-3ubuntu2.1_amd64.deb ...
+Unpacking libip6tc2:amd64 (1.8.4-3ubuntu2.1) over (1.8.4-3ubuntu2) ...
+Preparing to unpack .../3-libip4tc2_1.8.4-3ubuntu2.1_amd64.deb ...
+Unpacking libip4tc2:amd64 (1.8.4-3ubuntu2.1) over (1.8.4-3ubuntu2) ...
+Preparing to unpack .../4-openssl_1.1.1f-1ubuntu2.23_amd64.deb ...
+Unpacking openssl (1.1.1f-1ubuntu2.23) over (1.1.1f-1ubuntu2.16) ...
+Preparing to unpack .../5-wget_1.20.3-1ubuntu2.1_amd64.deb ...
+Unpacking wget (1.20.3-1ubuntu2.1) over (1.20.3-1ubuntu2) ...
+Preparing to unpack .../6-curl_7.68.0-1ubuntu2.23_amd64.deb ...
+Unpacking curl (7.68.0-1ubuntu2.23) over (7.68.0-1ubuntu2.12) ...
+Preparing to unpack .../7-libcurl4_7.68.0-1ubuntu2.23_amd64.deb ...
+Unpacking libcurl4:amd64 (7.68.0-1ubuntu2.23) over (7.68.0-1ubuntu2.12) ...
+Selecting previously unselected package libpkcs11-helper1:amd64.
+Preparing to unpack .../8-libpkcs11-helper1_1.26-1_amd64.deb ...
+Unpacking libpkcs11-helper1:amd64 (1.26-1) ...
+Selecting previously unselected package openvpn.
+Preparing to unpack .../9-openvpn_2.4.12-0ubuntu0.20.04.2_amd64.deb ...
+Unpacking openvpn (2.4.12-0ubuntu0.20.04.2) ...
+Setting up libip4tc2:amd64 (1.8.4-3ubuntu2.1) ...
+Setting up wget (1.20.3-1ubuntu2.1) ...
+Setting up libip6tc2:amd64 (1.8.4-3ubuntu2.1) ...
+Setting up libpkcs11-helper1:amd64 (1.26-1) ...
+Setting up libxtables12:amd64 (1.8.4-3ubuntu2.1) ...
+Setting up libcurl4:amd64 (7.68.0-1ubuntu2.23) ...
+Setting up curl (7.68.0-1ubuntu2.23) ...
+Setting up openssl (1.1.1f-1ubuntu2.23) ...
+Setting up openvpn (2.4.12-0ubuntu0.20.04.2) ...
+ * Restarting virtual private network daemon.                            [ OK ]
+Created symlink /etc/systemd/system/multi-user.target.wants/openvpn.service → /lib/systemd/system/openvpn.service.
+Setting up iptables (1.8.4-3ubuntu2.1) ...
+Processing triggers for systemd (245.4-4ubuntu3.17) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for install-info (6.7.0.dfsg.2-5) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+--2024-08-22 09:57:12--  https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.2/EasyRSA-3.1.2.tgz
+Resolving github.com (github.com)... 140.82.121.3
+Connecting to github.com (github.com)|140.82.121.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/4519663/c2688102-7cd5-4fcc-b272-083d48dc4b4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240822%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240822T095712Z&X-Amz-Expires=300&X-Amz-Signature=07c1660086ea6452aa0d97a95827164af0aa9379c962056078b439a4212bcf65&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=4519663&response-content-disposition=attachment%3B%20filename%3DEasyRSA-3.1.2.tgz&response-content-type=application%2Foctet-stream [following]
+--2024-08-22 09:57:12--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/4519663/c2688102-7cd5-4fcc-b272-083d48dc4b4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240822%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240822T095712Z&X-Amz-Expires=300&X-Amz-Signature=07c1660086ea6452aa0d97a95827164af0aa9379c962056078b439a4212bcf65&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=4519663&response-content-disposition=attachment%3B%20filename%3DEasyRSA-3.1.2.tgz&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 68984 (67K) [application/octet-stream]
+Saving to: ‘/root/easy-rsa.tgz’
+
+/root/easy-rsa.tgz  100%[===================>]  67.37K  --.-KB/s    in 0.004s
+
+2024-08-22 09:57:12 (18.6 MB/s) - ‘/root/easy-rsa.tgz’ saved [68984/68984]
+
+
+Notice
+------
+'init-pki' complete; you may now create a CA or requests.
+
+Your newly created PKI dir is:
+* /etc/openvpn/easy-rsa/pki
+
+* Using Easy-RSA configuration: /etc/openvpn/easy-rsa/vars
+
+* The preferred location for 'vars' is within the PKI folder.
+  To silence this message move your 'vars' file to your PKI
+  or declare your 'vars' file with option: --vars=<FILE>
+
+* Using x509-types directory: /etc/openvpn/easy-rsa/x509-types
+
+
+* Using SSL: openssl OpenSSL 1.1.1f  31 Mar 2020
+
+* Using Easy-RSA configuration: /etc/openvpn/easy-rsa/vars
+
+* The preferred location for 'vars' is within the PKI folder.
+  To silence this message move your 'vars' file to your PKI
+  or declare your 'vars' file with option: --vars=<FILE>
+
+Notice
+------
+CA creation complete and you may now import and sign cert requests.
+Your new CA certificate file for publishing is at:
+/etc/openvpn/easy-rsa/pki/ca.crt
+
+* Using SSL: openssl OpenSSL 1.1.1f  31 Mar 2020
+
+* Using Easy-RSA configuration: /etc/openvpn/easy-rsa/vars
+
+* The preferred location for 'vars' is within the PKI folder.
+  To silence this message move your 'vars' file to your PKI
+  or declare your 'vars' file with option: --vars=<FILE>
+Generating an EC private key
+writing new private key to '/etc/openvpn/easy-rsa/pki/0729127a/temp.2a07121a'
+-----
+
+Notice
+------
+Keypair and certificate request completed. Your files are:
+req: /etc/openvpn/easy-rsa/pki/reqs/server_WGxh77jtN50G7ESI.req
+key: /etc/openvpn/easy-rsa/pki/private/server_WGxh77jtN50G7ESI.key
+Using configuration from /etc/openvpn/easy-rsa/pki/0729127a/temp.567a69d2
+Check that the request matches the signature
+Signature ok
+The Subject's Distinguished Name is as follows
+commonName            :ASN.1 12:'server_WGxh77jtN50G7ESI'
+Certificate is to be certified until Aug 20 09:57:13 2034 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+
+Notice
+------
+Certificate created at:
+* /etc/openvpn/easy-rsa/pki/issued/server_WGxh77jtN50G7ESI.crt
+
+Notice
+------
+Inline file created:
+* /etc/openvpn/easy-rsa/pki/inline/server_WGxh77jtN50G7ESI.inline
+
+* Using SSL: openssl OpenSSL 1.1.1f  31 Mar 2020
+
+* Using Easy-RSA configuration: /etc/openvpn/easy-rsa/vars
+
+* The preferred location for 'vars' is within the PKI folder.
+  To silence this message move your 'vars' file to your PKI
+  or declare your 'vars' file with option: --vars=<FILE>
+Using configuration from /etc/openvpn/easy-rsa/pki/a6800c69/temp.62fefa87
+
+Notice
+------
+An updated CRL has been created.
+CRL file: /etc/openvpn/easy-rsa/pki/crl.pem
+
+* Applying /etc/sysctl.d/10-console-messages.conf ...
+kernel.printk = 4 4 1 7
+* Applying /etc/sysctl.d/10-ipv6-privacy.conf ...
+net.ipv6.conf.all.use_tempaddr = 2
+net.ipv6.conf.default.use_tempaddr = 2
+* Applying /etc/sysctl.d/10-kernel-hardening.conf ...
+kernel.kptr_restrict = 1
+* Applying /etc/sysctl.d/10-link-restrictions.conf ...
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.d/10-magic-sysrq.conf ...
+kernel.sysrq = 176
+* Applying /etc/sysctl.d/10-network-security.conf ...
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.all.rp_filter = 2
+* Applying /etc/sysctl.d/10-ptrace.conf ...
+kernel.yama.ptrace_scope = 1
+* Applying /etc/sysctl.d/10-zeropage.conf ...
+vm.mmap_min_addr = 65536
+* Applying /usr/lib/sysctl.d/50-default.conf ...
+net.ipv4.conf.default.promote_secondaries = 1
+sysctl: setting key "net.ipv4.conf.all.promote_secondaries": Invalid argument
+net.ipv4.ping_group_range = 0 2147483647
+net.core.default_qdisc = fq_codel
+fs.protected_regular = 1
+fs.protected_fifos = 1
+* Applying /usr/lib/sysctl.d/50-pid-max.conf ...
+kernel.pid_max = 4194304
+* Applying /etc/sysctl.d/99-openvpn.conf ...
+net.ipv4.ip_forward = 1
+net.ipv6.conf.all.forwarding = 1
+* Applying /etc/sysctl.d/99-sysctl.conf ...
+* Applying /usr/lib/sysctl.d/protect-links.conf ...
+fs.protected_fifos = 1
+fs.protected_hardlinks = 1
+fs.protected_regular = 2
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.conf ...
+Created symlink /etc/systemd/system/multi-user.target.wants/openvpn@server.service → /etc/systemd/system/openvpn@.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/iptables-openvpn.service → /etc/systemd/system/iptables-openvpn.service.
+
+Tell me a name for the client.
+The name must consist of alphanumeric character. It may also include an underscore or a dash.
+Client name: User
+
+Do you want to protect the configuration file with a password?
+(e.g. encrypt the private key with a password)
+   1) Add a passwordless client
+   2) Use a password for the client
+Select an option [1-2]: 1
+
+* Using SSL: openssl OpenSSL 1.1.1f  31 Mar 2020
+
+* Using Easy-RSA configuration: /etc/openvpn/easy-rsa/vars
+
+* The preferred location for 'vars' is within the PKI folder.
+  To silence this message move your 'vars' file to your PKI
+  or declare your 'vars' file with option: --vars=<FILE>
+Generating an EC private key
+writing new private key to '/etc/openvpn/easy-rsa/pki/9ad65ed3/temp.b645f3d0'
+-----
+
+Notice
+------
+Keypair and certificate request completed. Your files are:
+req: /etc/openvpn/easy-rsa/pki/reqs/User.req
+key: /etc/openvpn/easy-rsa/pki/private/User.key
+Using configuration from /etc/openvpn/easy-rsa/pki/9ad65ed3/temp.3bec0daf
+Check that the request matches the signature
+Signature ok
+The Subject's Distinguished Name is as follows
+commonName            :ASN.1 12:'User'
+Certificate is to be certified until Aug 20 09:57:29 2034 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+
+Notice
+------
+Certificate created at:
+* /etc/openvpn/easy-rsa/pki/issued/User.crt
+
+Notice
+------
+Inline file created:
+* /etc/openvpn/easy-rsa/pki/inline/User.inline
+Client User added.
+
+The configuration file has been written to /root/User.ovpn.
+Download the .ovpn file and import it in your OpenVPN client.
